@@ -156,6 +156,77 @@ nav a:hover {
   font-weight: bold;
 }
 
+/* Quick Timeline Styles */
+.milestone-timeline {
+  /* Keep the overview wide enough for horizontal scrolling. */
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(0, 15, 40, 0.55);
+  border-top: 2px solid var(--energy-blue);
+}
+
+#hero .milestone-timeline h2 {
+  /* Style the timeline heading without changing the hero heading rules. */
+  margin: 0 0 1rem;
+  color: var(--energy-blue);
+  font-family: "Intel One Mono", sans-serif;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  text-align: left;
+}
+
+.timeline-track {
+  /* Use Flexbox to keep the milestone steps in one horizontal row. */
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.5rem 0.25rem 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--energy-blue) transparent;
+}
+
+.timeline-step {
+  /* Stable widths make each scroll-snap position easy to read. */
+  display: flex;
+  flex: 0 0 12rem;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 6.5rem;
+  padding: 1rem;
+  border-left: 4px solid var(--energy-blue);
+  background-color: #fff;
+  color: var(--navy);
+  text-decoration: none;
+  scroll-snap-align: start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-step:hover,
+.timeline-step:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-step:focus-visible {
+  outline: 3px solid var(--energy-blue);
+  outline-offset: 3px;
+}
+
+.timeline-year {
+  margin-bottom: 0.5rem;
+  color: var(--intel-blue);
+  font-family: "Intel One Mono", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.timeline-step strong {
+  font-family: Roboto, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
 #hero .hero-images {
   /* Keep the two hero images centered in one row. */
   display: flex;
@@ -475,6 +546,26 @@ footer a:focus-visible {
   #hero p {
     /* Keep supporting hero text comfortable to read on mobile. */
     font-size: 1rem;
+  }
+
+  .milestone-timeline {
+    /* Stack the overview vertically on smaller screens. */
+    margin-top: 1.5rem;
+    padding: 1rem;
+  }
+
+  .timeline-track {
+    /* Keep Flexbox while changing the timeline to a vertical list. */
+    flex-direction: column;
+    overflow-x: visible;
+    padding: 0.25rem;
+  }
+
+  .timeline-step {
+    /* Make each mobile milestone fill the available width. */
+    flex-basis: auto;
+    min-height: 4.5rem;
+    width: 100%;
   }
 
   #hero .hero-images {
